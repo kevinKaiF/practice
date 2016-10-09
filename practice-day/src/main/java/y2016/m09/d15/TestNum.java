@@ -8,7 +8,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import javax.sql.DataSource;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-19 PM02:09
  */

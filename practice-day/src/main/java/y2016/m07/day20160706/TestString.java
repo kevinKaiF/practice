@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 /**
  * The type Test string.
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-07-06 AM09:05
  */
@@ -17,7 +17,7 @@ public class TestString {
     /**
      * format支持null.
      *
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-06 09:52:55
      */
     @Test

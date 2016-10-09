@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-07-05 PM02:06
  */
@@ -18,7 +18,7 @@ public class TestArgs {
      * args=[yes, no, sss]
      *
      * @param args the args
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-05 14:24:50
      */
     public static void main(String[] args) {

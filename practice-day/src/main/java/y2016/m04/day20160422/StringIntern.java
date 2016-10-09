@@ -2,7 +2,7 @@ package y2016.m04.day20160422;
 
 /**
  * 以下探究基于JDK1.7
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-04-22 AM09:53
  */

@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-14 PM03:15
  */

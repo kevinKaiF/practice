@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-23 AM11:41
  */
@@ -24,7 +24,7 @@ public class ConnectionWatcher implements Watcher {
      * @param host the host
      * @throws IOException          the io exception
      * @throws InterruptedException the interrupted exception
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-23 11:16:13
      */
     public void connect(String host) throws IOException, InterruptedException {

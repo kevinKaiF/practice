@@ -2,7 +2,7 @@ package y2016.m08.day20160817;
 
 import org.apache.commons.codec.binary.Base64;
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-17 PM06:51
  */

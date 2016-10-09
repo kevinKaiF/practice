@@ -6,7 +6,7 @@ package y2016.m09.d28;
  * 3.如果只是调用静态变量或静态方法，构造函数是不会初始化的，内部类也是如此
  * 4.如果要调用内部类的属性或方法，外部类的静态属性，静态块要进行初始化
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-28 PM01:51
  */

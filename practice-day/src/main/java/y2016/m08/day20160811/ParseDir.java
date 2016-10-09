@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 解析文件目录.
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-12 PM04:17
  */
@@ -16,7 +16,7 @@ public interface ParseDir {
      * 解析所有的文件夹下所有的日志文件.
      *
      * @return the list
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-12 16:58:47
      */
     List<File> parseSubFile();
@@ -26,7 +26,7 @@ public interface ParseDir {
      *
      * @param subFiles the sub files
      * @return the map
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-12 16:59:21
      */
     Map<String, List<String>> toMap(List<File> subFiles);

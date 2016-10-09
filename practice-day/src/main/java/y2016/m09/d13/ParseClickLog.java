@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-13 AM10:17
  */
@@ -48,7 +48,7 @@ public class ParseClickLog {
      *
      * @param root the root
      * @param type the type
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-11 17:33:05
      */
     public void multiParse(final String root, final String type, ParseDir parseDir) {

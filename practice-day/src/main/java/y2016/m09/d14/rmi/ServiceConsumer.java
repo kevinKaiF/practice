@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-14 PM03:04
  */
@@ -69,7 +69,7 @@ public class ServiceConsumer {
      * @param <T>         the type parameter
      * @param serviceName the service name, 服务名称
      * @return the t
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-14 16:51:13
      */
     public <T extends Remote> T lookup(String serviceName) {

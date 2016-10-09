@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
  *                     |--------WinNTFileSystem
  * 委托于FileSystem是因为不同的操作系统有不同的实现
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-04-25 PM01:11
  */

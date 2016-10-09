@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-09 AM09:01
  */
@@ -138,7 +138,7 @@ public class SimpleLock {
      *
      * @throws KeeperException      the keeper exception
      * @throws InterruptedException the interrupted exception
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-08 10:14:45
      */
     private void deleteNode() throws KeeperException, InterruptedException {

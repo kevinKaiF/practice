@@ -6,7 +6,7 @@ import java.util.BitSet;
 import java.util.Random;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-21 PM02:17
  */
@@ -16,7 +16,7 @@ public class TestBitSet {
      * bitset原理，用当前set的值，表示一个64数据index对应的位，超过64的继续扩展出另一个64位
      * 底层有个long数组，每64位记录占据一个long元素，超出64位继续占据下一个long元素
      *
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-27 17:16:16
      */
     @Test

@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-11 AM09:22
  */
@@ -77,7 +77,7 @@ public class ParseLog {
      *
      * @param root the root
      * @param type the type
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-11 17:33:05
      */
     public void multiParse(final String root, final String type, ParseDir parseDir) {
@@ -180,7 +180,7 @@ public class ParseLog {
      *
      * @param root       the root
      * @param parseIpLog the parse ip log
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-16 09:22:30
      */
     public void parseFlow(String root, String parseIpLog, String ignoredIp) {
@@ -263,7 +263,7 @@ public class ParseLog {
      *
      * @param inputPath the input path
      * @param topNum    the top num
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-13 16:38:10
      */
     public void parseUserVisitPage(String inputPath, int topNum) {
@@ -314,7 +314,7 @@ public class ParseLog {
      * @param dayPath 每一天日志路径
      * @param type    the type
      * @param topNum
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-13 16:48:53
      */
     public void parseUserVisitPath(String dayPath, String type, int topNum) {
@@ -356,7 +356,7 @@ public class ParseLog {
      * @param subNames the sub names
      * @param type     the type
      * @return the map
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-14 09:55:22
      */
     private Map<String, List<UrlAndRefer>> parseVisitPathPerHour(List<String> subNames, String type) {

@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-05-23 AM11:45
  */

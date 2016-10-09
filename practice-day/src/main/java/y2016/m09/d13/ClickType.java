@@ -1,7 +1,7 @@
 package y2016.m09.d13;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : ${fdate}
  */

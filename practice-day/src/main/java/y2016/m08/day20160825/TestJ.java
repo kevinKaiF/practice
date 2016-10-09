@@ -3,7 +3,7 @@ package y2016.m08.day20160825;
 import org.junit.Test;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-25 AM10:27
  */
@@ -54,7 +54,7 @@ public class TestJ {
          * 子类的构造函数初始化，
          *
          * @param args the args
-         * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+         * @author : kevin
          * @date : 2016-08-25 10:35:43
          */
         public static void main(String[] args) {

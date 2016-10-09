@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.text.NumberFormat;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-12 PM06:20
  */

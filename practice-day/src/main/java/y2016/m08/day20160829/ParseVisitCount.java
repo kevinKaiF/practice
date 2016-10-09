@@ -18,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-29 AM11:47
  */
@@ -44,7 +44,7 @@ public class ParseVisitCount {
      *
      * @param inputPath  每天的日志目录
      * @param outputPath the output path
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-01 16:47:34
      */
     public void parse(String inputPath, String outputPath) {

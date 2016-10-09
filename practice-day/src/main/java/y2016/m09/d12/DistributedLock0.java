@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-07 AM10:51
  */
@@ -132,7 +132,7 @@ public class DistributedLock0 {
      *
      * @throws KeeperException      the keeper exception
      * @throws InterruptedException the interrupted exception
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-08 10:14:45
      */
     private void deleteNode() throws KeeperException, InterruptedException {
@@ -152,7 +152,7 @@ public class DistributedLock0 {
      * @param root      the root
      * @throws KeeperException      the keeper exception
      * @throws InterruptedException the interrupted exception
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-12 10:10:07
      */
     private synchronized void watchMiniChild(ZooKeeper zooKeeper, String root) throws KeeperException, InterruptedException {

@@ -13,7 +13,7 @@ import java.text.MessageFormat;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-14 PM03:40
  */

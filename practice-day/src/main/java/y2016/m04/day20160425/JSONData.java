@@ -1,7 +1,7 @@
 package y2016.m04.day20160425;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-04-25 AM10:42
  */

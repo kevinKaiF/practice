@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-03 PM02:41
  */
@@ -54,7 +54,7 @@ public class TestReentrantReadWriteLock {
      * writeLock是互斥锁，只能有一个线程hold writeLock.
      *
      * @throws InterruptedException the interrupted exception
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-03 15:06:42
      */
     @Test

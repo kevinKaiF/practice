@@ -3,7 +3,7 @@ package y2016.m09.d29;
 import org.junit.Test;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-29 PM02:36
  */

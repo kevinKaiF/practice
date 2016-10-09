@@ -4,7 +4,7 @@ import cn.bidlink.framework.jk.JkDownload;
 import org.junit.Test;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-07-15 PM03:36
  */

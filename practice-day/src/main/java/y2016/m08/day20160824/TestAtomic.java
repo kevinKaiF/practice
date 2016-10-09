@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static java.lang.String.format;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-24 PM03:02
  */
@@ -17,7 +17,7 @@ public class TestAtomic {
     /**
      * 尽管是AtomicReference，也需要注意引用共享的问题.
      *
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-24 15:19:25
      */
     @Test

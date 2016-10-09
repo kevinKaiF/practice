@@ -3,7 +3,7 @@ package cn.bn.entity;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-10-08 AM11:21
  */

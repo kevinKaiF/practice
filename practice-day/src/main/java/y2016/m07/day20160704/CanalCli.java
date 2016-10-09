@@ -183,7 +183,7 @@ public class CanalCli {
      * 关闭canal，停掉所有的实例
      *
      * @param cmd the cmd
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-01 13:21:14
      */
     public void shutdown(CommandLine cmd) {
@@ -194,7 +194,7 @@ public class CanalCli {
      * 启动，并后移binlog解析时间.
      *
      * @param cmd the cmd
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-01 13:16:54
      */
     private void startWithDelay(CommandLine cmd) {
@@ -268,7 +268,7 @@ public class CanalCli {
      * 销毁.
      *
      * @param cmd the cmd
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-01 17:58:27
      */
     private void destroy(CommandLine cmd) {
@@ -281,7 +281,7 @@ public class CanalCli {
      * NOTE:这个启用会将销毁掉的Canal实例启动
      *
      * @param cmd the cmd
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-04 10:25:13
      */
     private void enable(CommandLine cmd) {
@@ -295,7 +295,7 @@ public class CanalCli {
      * 执行客户端命令
      *
      * @param methodName the method name
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-01 15:34:35
      */
     private void execution(String methodName) {
@@ -306,7 +306,7 @@ public class CanalCli {
      *
      * @param delayTimeStamp the delay time stamp
      * @param methodName     the method name
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-07-01 15:34:58
      */
     private void execution(Date delayTimeStamp, String methodName) {

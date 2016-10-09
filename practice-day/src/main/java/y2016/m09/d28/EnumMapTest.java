@@ -8,7 +8,7 @@ import java.util.EnumMap;
 /**
  * EnumMap以枚举为key,而且整个map是有序的，按照enum的ordinary排列
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-28 AM10:02
  */
@@ -35,7 +35,7 @@ public class EnumMapTest {
      * @param <K>     the type parameter
      * @param keyType the key type
      * @return the k [ ]
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-09-28 10:39:33
      */
     private static <K extends Enum<K>> K[] getKeyUniverse(Class<K> keyType) {

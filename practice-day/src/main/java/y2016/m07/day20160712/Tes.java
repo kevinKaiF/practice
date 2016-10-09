@@ -4,7 +4,7 @@ package y2016.m07.day20160712;
 /**
  * The type Tes.
  *
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver1.0
  * @date : 2016-07-13 09:25:15
  */

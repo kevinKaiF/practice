@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-23 PM02:14
  */

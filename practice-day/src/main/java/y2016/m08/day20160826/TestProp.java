@@ -3,7 +3,7 @@ package y2016.m08.day20160826;
 import org.junit.Test;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-26 PM01:30
  */
@@ -48,7 +48,7 @@ public class TestProp {
      * @param escapeSpace   the escape space
      * @param escapeUnicode the escape unicode
      * @return the string
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-26 13:46:52
      */
     public String saveConvert(String theString,

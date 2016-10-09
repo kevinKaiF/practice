@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-08-03 AM10:55
  */
@@ -16,7 +16,7 @@ public class TestReentrantLock {
      * 获取锁的数目是用int volatile state来表示。
      * 由于state是int变量，可重入的数目是上限的Integer.MAX_VALUE，如果溢出会抛出Error:Maximum lock count exceeded
      *
-     * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+     * @author : kevin
      * @date : 2016-08-03 11:50:47
      */
     @Test

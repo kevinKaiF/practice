@@ -5,7 +5,7 @@ import y2016.m08.day20160825.Closer;
 import java.io.*;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-09-05 PM01:25
  */
