@@ -10,13 +10,13 @@
     </session-config>
 
 	<servlet>
-		<servlet-name>11</servlet-name>
+		<servlet-carName>11</servlet-carName>
 		<servlet-class>cn.bid.servlet.FormServlet</servlet-class>
 	</servlet>
 
 
 	<servlet-mapping>
-		<servlet-name>11</servlet-name>
+		<servlet-carName>11</servlet-carName>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 

@@ -1,21 +1,9 @@
 package cn.bn.main;
 
-import cn.bn.controller.DataController;
+import cn.bn.entity.Car;
 import cn.bn.entity.DataBean;
 import cn.bn.entity.TestBean;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.concurrent.Semaphore;
 
 /**
  * @author : kevin
@@ -23,18 +11,23 @@ import java.util.concurrent.Semaphore;
  * @date : 2016-09-19 PM04:24
  */
 public class launcher {
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws Exception {
 //        Semaphore semaphore = new Semaphore(0);
-        // 初始化的时候，会进行一次refresh事件
+        // 1.初始化的时候，会进行一次refresh事件
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:spring-context.xml");
 //        classPathXmlApplicationContext.start();
 //        classPathXmlApplicationContext.refresh();
 
 //        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) classPathXmlApplicationContext.getBeanFactory();
 //        beanFactory.registerSingleton("dataBean", new DataBean("test", "source"));
-        DataController bean = classPathXmlApplicationContext.getBean(DataController.class);
-        System.out.println(bean);
+//        DataController bean = classPathXmlApplicationContext.getBean(DataController.class);
+//        System.out.println(bean);
 
+        // 2.测试aop
+        DataBean dataBean = classPathXmlApplicationContext.getBean(DataBean.class);
+        dataBean.setData("test");
+
+        // 3.手动扫描文件
 //        Properties properties = PropertiesLoaderUtils.loadAllProperties("test.properties", Thread.currentThread().getClass().getClassLoader());
 
 //        Resource resource = new FileSystemResource("./test.properties");
@@ -44,9 +37,15 @@ public class launcher {
 //
 //        System.out.println(properties.getProperty("name"));
 
+        // 4.配置注入属性
         TestBean testBean = classPathXmlApplicationContext.getBean(TestBean.class);
         System.out.println(testBean.toString());
 
+        // 5.测试factoryBean
+        Car car = classPathXmlApplicationContext.getBean(Car.class);
+        System.out.println(car);
+//        CarFactory carFactory = (CarFactory) classPathXmlApplicationContext.getBean("&car");
+//        System.out.println("some car ? " + (carFactory.getObject() == car));
         Thread.sleep(2000);
 //        classPathXmlApplicationContext.refresh(); // 清空所有注册的bean
         classPathXmlApplicationContext.close();

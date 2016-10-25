@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>practice-from</artifactId>
+    <artifactId>practice-form</artifactId>
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>

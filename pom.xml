@@ -13,6 +13,7 @@
         <module>practice-form</module>
         <module>practice-day</module>
     </modules>
+    <packaging>pom</packaging>
 
     
 </project>
