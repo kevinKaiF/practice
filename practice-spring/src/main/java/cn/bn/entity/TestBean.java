@@ -1,21 +1,19 @@
 package cn.bn.entity;
 
-import org.springframework.beans.factory.InitializingBean;
+import java.util.Date;
 
 /**
  * @author : kevin
  * @version : Ver 1.0
  * @date : 2016-10-08 AM11:21
  */
-public class TestBean implements InitializingBean {
+public class TestBean {
     private String data;
     private String source;
-    private DataBean dataBean;
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        dataBean = new DataBean();
-        dataBean.setData(data);
-        dataBean.setSource(source);
+    private Date date;
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setData(String data) {
@@ -31,7 +29,7 @@ public class TestBean implements InitializingBean {
         return "TestBean{" +
                 "data='" + data + '\'' +
                 ", source='" + source + '\'' +
-                ", dataBean=" + dataBean.toString() +
+                ", date=" + date +
                 '}';
     }
 }

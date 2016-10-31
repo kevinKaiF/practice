@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
@@ -10,18 +10,58 @@
     <!--<context:annotation-config/>-->
     <import resource="applicationContext-db.xml"/>
     <aop:aspectj-autoproxy/>
+
+
     <bean id="testBean" class="cn.bn.entity.TestBean">
         <property name="data">
-            <value>data</value>
+            <value>dataTest</value>
         </property>
         <property name="source">
-            <value>source</value>
+            <value>sourceTest</value>
+        </property>
+        <property name="date">
+            <value>2016-03-20</value>
         </property>
     </bean>
 
     <bean id="carFactory" class="cn.bn.factory.CarFactory">
         <property name="carName">
             <value>超级跑车</value>
+        </property>
+    </bean>
+
+    <!--<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+        <!--&lt;!&ndash;spring4.0按class类型注入&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="customEditors">&ndash;&gt;-->
+            <!--&lt;!&ndash;<map>&ndash;&gt;-->
+                <!--&lt;!&ndash;<entry key="java.util.Date" value="cn.bn.utils.DatePropertyEditor">&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<bean id="datePropertyEditor" class="cn.bn.utils.DatePropertyEditor">&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<property name="pattern">&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<value>yyyy-MM-dd</value>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;</property>&ndash;&gt;&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;</bean>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;</entry>&ndash;&gt;-->
+            <!--&lt;!&ndash;</map>&ndash;&gt;-->
+        <!--&lt;!&ndash;</property>&ndash;&gt;-->
+        <!--<property name="propertyEditorRegistrars">-->
+            <!--<list>-->
+                <!--<bean id="datePropertyEditor" class="cn.bn.utils.DatePropertyRegistrar">-->
+                    <!--<property name="pattern">-->
+                        <!--<value>yyyy-MM-dd</value>-->
+                    <!--</property>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--id必须这么写-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="cn.bn.utils.DateConverter">
+                    <property name="pattern" value="yyyy-MM-dd"/>
+                </bean>
+            </set>
         </property>
     </bean>
 </beans>
