@@ -64,8 +64,11 @@ public class TestParseLocation {
         Properties prop = new Properties();
         FileInputStream inputStream = null;
 //        File file = new File(System.getProperty("java.home") + File.separator + "lib" + File.separator + "content-types.properties");
+        // 底层实现是UrlClassPath.FileLoader加载文件
         System.out.println(TestParseLocation.class.getResource("/").getPath()); // package所在的父目录
-        File file = new File(TestParseLocation.class.getResource("/test.properties").getPath());
+        URL resource = TestParseLocation.class.getResource("/test.properties");
+        String path = resource.getPath();
+        File file = new File(path);
         try {
             inputStream = new FileInputStream(file);
             prop.load(inputStream);

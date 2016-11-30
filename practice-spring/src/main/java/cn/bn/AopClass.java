@@ -4,14 +4,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
-/**
- * @description:
- * @author: <a href="jiangsai@ebnew.com">jiangsai </a>
- * @version: 1.0
- * @changelog: 变更日志记录
- * author                   date               comment
- * jiangsai@ebnew.com      2016/10/24             创建类
- */
 @Aspect
 @Component
 public class AopClass {

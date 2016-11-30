@@ -9,6 +9,7 @@ public class Person {
     private String name;
     private String password;
     private int age;
+    private Long roadLength;
 
     public Person(String name, String password, int age) {
         this.name = name;
@@ -30,6 +31,14 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Long getRoadLength() {
+        return roadLength;
+    }
+
+    public void setRoadLength(Long roadLength) {
+        this.roadLength = roadLength;
     }
 
     @Override

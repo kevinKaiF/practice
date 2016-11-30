@@ -96,7 +96,7 @@ public class TestTableMeta {
                         printWriter.println(sb.toString());
                         System.out.println(resultSet.getMetaData().toString());
                     } else {
-                        System.out.println("meizhaodao");
+                        System.out.println("not found!");
                     }
                     printWriter.flush();
                     printWriter.close();

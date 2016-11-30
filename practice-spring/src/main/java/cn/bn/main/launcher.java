@@ -2,6 +2,7 @@ package cn.bn.main;
 
 import cn.bn.entity.Car;
 import cn.bn.entity.DataBean;
+import cn.bn.entity.DateEntity;
 import cn.bn.entity.TestBean;
 import cn.bn.service.DataBeanService;
 import cn.bn.service.TestBeanService;
@@ -16,17 +17,17 @@ public class launcher {
     public static void main(String[] args) throws Exception {
 //        Semaphore semaphore = new Semaphore(0);
         // 1.初始化的时候，会进行一次refresh事件
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:spring-context.xml");
-//        classPathXmlApplicationContext.start();
-//        classPathXmlApplicationContext.refresh();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-context.xml");
+//        context.start();
+//        context.refresh();
 
-//        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) classPathXmlApplicationContext.getBeanFactory();
+//        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();
 //        beanFactory.registerSingleton("dataBean", new DataBean("test", "source"));
-//        DataController bean = classPathXmlApplicationContext.getBean(DataController.class);
+//        DataController bean = context.getBean(DataController.class);
 //        System.out.println(bean);
 
         // 2.测试aop
-        DataBean dataBean = classPathXmlApplicationContext.getBean(DataBean.class);
+        DataBean dataBean = context.getBean(DataBean.class);
         dataBean.setData("test");
 
         // 3.手动扫描文件
@@ -40,18 +41,18 @@ public class launcher {
 //        System.out.println(properties.getProperty("name"));
 
         // 4.配置注入属性
-//        TestBean testBean = classPathXmlApplicationContext.getBean(TestBean.class);
+//        TestBean testBean = context.getBean(TestBean.class);
 //        System.out.println(testBean.toString());
 
         // 5.测试factoryBean
-        Car car = classPathXmlApplicationContext.getBean(Car.class);
+        Car car = context.getBean(Car.class);
         System.out.println(car);
-//        CarFactory carFactory = (CarFactory) classPathXmlApplicationContext.getBean("&car");
+//        CarFactory carFactory = (CarFactory) context.getBean("&car");
 //        System.out.println("some car ? " + (carFactory.getObject() == car));
 
         // 6.接口注入
-        DataBeanService dataBeanService = classPathXmlApplicationContext.getBean(DataBeanService.class);
-        TestBeanService testBeanService = classPathXmlApplicationContext.getBean(TestBeanService.class);
+        DataBeanService dataBeanService = context.getBean(DataBeanService.class);
+        TestBeanService testBeanService = context.getBean(TestBeanService.class);
 
         // 7.自定义属性编辑器
         // 自定义属性编辑器有三种方式:
@@ -61,11 +62,14 @@ public class launcher {
         //  这种方式会自己控制注册过程
         // 3)org.springframework.context.support.ConversionServiceFactoryBean配置converters,实现Converter接口
         //  必须指定ConversionServiceFactoryBean的id为conversionService
-        TestBean testBean = classPathXmlApplicationContext.getBean(TestBean.class);
+        TestBean testBean = context.getBean(TestBean.class);
         System.out.println(testBean.toString());
+        // 注意:使用DateFormat注解,只是指定日期的匹配格式
+        DateEntity dateEntity = context.getBean(DateEntity.class);
+        System.out.println("dateEntity : " + dateEntity);
         Thread.sleep(2000);
-//        classPathXmlApplicationContext.refresh(); // 清空所有注册的bean
-        classPathXmlApplicationContext.close();
+//        context.refresh(); // 清空所有注册的bean
+        context.close();
 //        semaphore.acquire();
     }
 }

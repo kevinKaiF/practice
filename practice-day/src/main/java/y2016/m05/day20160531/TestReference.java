@@ -27,7 +27,6 @@ public class TestReference {
         weakHashMap.put("name", "kevin");
 
         System.out.println(weakHashMap.get("name"));
-        System.out.println();
     }
 
     @Test
@@ -56,6 +55,7 @@ public class TestReference {
     /**
      * 由于String的特殊性，String的直接量是保存在常量池中，即在方法区中，并没有被垃圾回收
      * 但是呢， 可以使用new String的方式就OK
+     * 引用是对堆而言的
      */
     public void testWeak2() {
         WeakHashMap wMap = new WeakHashMap();
@@ -111,11 +111,10 @@ public class TestReference {
         String s = new String("test");
         ReferenceQueue<String> queue = new ReferenceQueue<>();
         PhantomReference<String> phantomReference = new PhantomReference<>(s, queue);
-
+        System.out.println("isEnqueued ?" + phantomReference.isEnqueued());
         System.out.println(queue.poll());
         System.out.println(queue.poll() == phantomReference);
-
-//        s = null;
+        s = null;
 
         try {
             System.gc();
@@ -124,22 +123,50 @@ public class TestReference {
             e.printStackTrace();
         }
 
-        System.out.println("enqueue ? " + phantomReference.enqueue());
+//        System.out.println("enqueue ? " + phantomReference.enqueue());
         System.out.println("isEnqueued ?" + phantomReference.isEnqueued());
         System.out.println(queue.poll() == phantomReference);
 
         System.out.println(s);
     }
 
+    @Test
+    public void testWeakReference1() {
+        String s = new String("test");
+        ReferenceQueue<String> queue = new ReferenceQueue<>();
+        WeakReference<String> weakReference = new WeakReference<>(s, queue);
+        System.out.println("isEnqueued ?" + weakReference.isEnqueued());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll() == weakReference);
+        s = null;
+
+        try {
+            System.gc();
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        System.out.println("enqueue ? " + weakReference.enqueue());
+        System.out.println("isEnqueued ?" + weakReference.isEnqueued());
+        System.out.println(queue.poll() == weakReference);
+
+        System.out.println(s);
+    }
+
 
     public static void main(String[] args) {
-        Person person = new Person("");
+        System.out.println(Person.age);
+//        Person person = new Person("");
     }
 
     private static class Person {
         static {
             System.out.println("static");
         }
+
+        private static int age = 2;
+
         private String name;
 
         public Person() {
