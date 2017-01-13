@@ -11,8 +11,8 @@ public class ElasticesearchTest {
 //
 //    private static ClientConfig getClientConfig() {
 //        String connectUrl = "http://192.168.199.130:9200";
-//        ClientConfig.Builder builder = new ClientConfig.Builder(connectUrl).multiThreaded(true);
-//        ClientConfig clientConfig = new ClientConfig(builder);
+//        ClientConfig.Builder build = new ClientConfig.Builder(connectUrl).multiThreaded(true);
+//        ClientConfig clientConfig = new ClientConfig(build);
 //        return clientConfig;
 //    }
 //

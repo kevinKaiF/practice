@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class AopClass {
+    private long startTime;
     @Pointcut("execution(* cn.bn.entity.DataBean.setData(..))")
     public void joinPoint() {
     }
@@ -14,11 +15,13 @@ public class AopClass {
     @Before("joinPoint()")
     public void before() {
         System.out.println("before");
+        startTime = System.currentTimeMillis();
     }
 
     @After("joinPoint()")
     public void after() {
         System.out.println("after");
+        System.out.println("past : " + (System.currentTimeMillis() - startTime));
     }
 
     @Around("joinPoint()")

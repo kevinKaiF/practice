@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.TreeMap;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @description :
  * @date : 2016/11/24

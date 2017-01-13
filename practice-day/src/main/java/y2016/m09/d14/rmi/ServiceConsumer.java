@@ -67,7 +67,7 @@ public class ServiceConsumer {
      * Lookup t.
      *
      * @param <T>         the type parameter
-     * @param serviceName the service name, 服务名称
+     * @param serviceName the cn.bella.service name, 服务名称
      * @return the t
      * @author : kevin
      * @date : 2016-09-14 16:51:13

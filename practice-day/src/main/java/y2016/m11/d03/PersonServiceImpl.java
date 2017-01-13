@@ -3,7 +3,7 @@ package y2016.m11.d03;
 import y2016.m09.d14.Person;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @description :
  * @date : 2016/11/3

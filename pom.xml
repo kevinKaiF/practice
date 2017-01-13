@@ -12,8 +12,32 @@
         <module>practice-spring</module>
         <module>practice-form</module>
         <module>practice-day</module>
+        <module>practice-remote</module>
+        <module>practice-dubbo</module>
     </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <!--<configuration>-->
+                <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
+                <!--</configuration>-->
+            </plugin>
+        </plugins>
+    </build>
     <packaging>pom</packaging>
 
-    
+
 </project>

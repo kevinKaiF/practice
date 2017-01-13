@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @description :
  * @date : 2016/11/28
@@ -29,7 +29,7 @@ public class TestSelector {
         while (true) {
             Set<SelectionKey> selectionKeys = selector.keys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
-            while (iterator.hasNext()) { // 轮训selectionKey
+            while (iterator.hasNext()) { // 轮询selectionKey
                 SelectionKey selectionKey = iterator.next();
                 // 判断selectionKey类型
                 if (/*(selectionKey.readyOps() & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT*/selectionKey.isAcceptable()) {

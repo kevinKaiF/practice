@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @version : Ver 1.0
  * @date : 2016-09-19 PM05:38
  */
-//@Component
+@Component
 public class DataBean {
     private String data;
     private String source;

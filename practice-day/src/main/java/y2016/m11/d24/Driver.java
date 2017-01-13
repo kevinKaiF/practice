@@ -3,7 +3,7 @@ package y2016.m11.d24;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @description :
  * @date : 2016/11/24

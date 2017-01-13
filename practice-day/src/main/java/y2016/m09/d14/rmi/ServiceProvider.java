@@ -54,7 +54,7 @@ public class ServiceProvider {
             url = MessageFormat.format("rmi://{0}:{1}/{2}", host, port, remote.getClass().getName());
             LocateRegistry.createRegistry(Integer.parseInt(port));
             Naming.rebind(url, remote);
-//            LOGGER.debug("publish rmi service url : ({})", url);
+//            LOGGER.debug("publish rmi cn.bella.service url : ({})", url);
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {

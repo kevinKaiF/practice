@@ -7,6 +7,8 @@ import cn.bn.entity.TestBean;
 import cn.bn.service.DataBeanService;
 import cn.bn.service.TestBeanService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 /**
  * @author : kevin
@@ -34,8 +36,8 @@ public class launcher {
 //        Properties properties = PropertiesLoaderUtils.loadAllProperties("test.properties", Thread.currentThread().getClass().getClassLoader());
 
 //        Resource resource = new FileSystemResource("./test.properties");
-//        Resource resource = new ClassPathResource("test.properties");
-//        System.out.println(resource.getURI().getPath());
+        Resource resource = new ClassPathResource("test/test.properties");
+        System.out.println(resource.getURI().getPath());
 //        Properties properties = PropertiesLoaderUtils.loadProperties(resource);
 //
 //        System.out.println(properties.getProperty("name"));
@@ -54,6 +56,8 @@ public class launcher {
         DataBeanService dataBeanService = context.getBean(DataBeanService.class);
         TestBeanService testBeanService = context.getBean(TestBeanService.class);
 
+        DataBean bean = context.getBean(DataBean.class);
+        bean.setData("My Data");
         // 7.自定义属性编辑器
         // 自定义属性编辑器有三种方式:
         // 1)org.springframework.bean.factory.config.CustomEditorConfigurer配置customEditors,继承PropertyEditorSupport

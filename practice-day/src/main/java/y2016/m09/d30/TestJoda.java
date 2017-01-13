@@ -12,8 +12,12 @@ import org.junit.Test;
 public class TestJoda {
     @Test
     public void testJoda() {
+
         long yesterday = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").parseDateTime("2016-09-29 13:34:00").getMillis();
         long millis = new DateTime().plus(-yesterday).getMillis();
         System.out.println(millis - 24 * 3600 * 1000);
+
+        DateTime dateTime = new DateTime(System.currentTimeMillis());
+        System.out.println(dateTime.toString("yyyyMMdd"));
     }
 }

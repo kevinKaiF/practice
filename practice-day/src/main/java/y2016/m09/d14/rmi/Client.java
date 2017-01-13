@@ -14,7 +14,7 @@ public class Client {
             if (helloService != null) {
                 helloService.sayHello();
             } else {
-                System.out.println("there is no service");
+                System.out.println("there is no cn.bella.service");
             }
             Thread.sleep(1000);
         }
