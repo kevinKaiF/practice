@@ -28,4 +28,12 @@ public class EvaluateIndexItem {
     public void setItemNum(int itemNum) {
         this.itemNum = itemNum;
     }
+
+    @Override
+    public String toString() {
+        return "EvaluateIndexItem{" +
+                "secondName='" + secondName + '\'' +
+                ", itemNum=" + itemNum +
+                '}';
+    }
 }
