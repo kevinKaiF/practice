@@ -1,6 +1,9 @@
 package y2016.m12.d26;
 
 /**
+ * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @version : Ver 1.0
+ * @date : 2017-01-17 AM10:08
  * @author : kevin
  * @version : Ver 1.0
  * @description :

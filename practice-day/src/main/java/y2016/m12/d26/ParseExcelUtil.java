@@ -57,15 +57,17 @@ public class ParseExcelUtil {
                         delegate.handleMultiRowData(evaluateIndexList, currRow);
                         delegate.clear();
                     }
-                } else if (StringUtils.isNotBlank(secondName) && StringUtils.isNotBlank(itemNumString)) {
+                } else if (/*StringUtils.isNotBlank(secondName) && */StringUtils.isNotBlank(itemNumString)) {
                     int itemNum = 0; // 二级指标评分
                     if (!delegate.isParsedHeader()) { // 解析header
                         delegate.parseHeader(itemNumString);
                     } else {
                         itemNum = delegate.parseItemNum(currRow.getRowNum(), itemNumString);
-//                        CellRangeAddress cellRangeAddress = delegate.lookupMergeRegion(sheet.getMergedRegions(), firstNameCell);
-                        CellRangeAddress cellRangeAddress = null;
+                        CellRangeAddress cellRangeAddress = delegate.lookupMergeRegion(sheet.getMergedRegions(), firstNameCell);
+//                        CellRangeAddress cellRangeAddress = null;
                         if (cellRangeAddress != null) {
+                            // 如果
+                            delegate.validateCell(secondNameCell, ParseExcelDelegate.SECOND_NAME_CELL, currRow.getRowNum());
                             if (currentCellRangeAddress == null) { // 开始进入合并区域
                                 delegate.setPrevFirstName(firstName);
                                 currentCellRangeAddress = cellRangeAddress;
@@ -89,6 +91,7 @@ public class ParseExcelUtil {
 
                             // 记录新的合并区域
                             delegate.setPrevFirstName(firstName);
+                            secondName = secondName == null ? "" : secondName;
                             delegate.addRowData(secondName, itemNum);
                             delegate.handleMultiRowData(evaluateIndexList, currRow);
 
@@ -98,7 +101,6 @@ public class ParseExcelUtil {
                     }
                 } else {
                     delegate.validateCell(firstNameCell, ParseExcelDelegate.FIRST_NAME_CELL, currRow.getRowNum());
-                    delegate.validateCell(secondNameCell, ParseExcelDelegate.SECOND_NAME_CELL, currRow.getRowNum());
                     delegate.validateCell(itemNumCell, ParseExcelDelegate.ITEM_NUM_CELL, currRow.getRowNum());
                 }
             }

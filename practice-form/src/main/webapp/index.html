@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-<form action="http://localhost:8080/form/form.do" method="POST" accept-charset="UTF-8">
+<form action="form.do" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
     <!-- <label>
         MD5:
         <input carName="md5" value="550fbe370848f01d8e1d9ad38e274edf,550fbe370848f01d8e1d9ad38e274edf">
@@ -13,11 +13,18 @@
     <br> -->
     <label>
         文件名:
-        <input carName="fileName" value="1标书文件-原文件 - 复制.png/1标书文件-原文件.png">
+        <input name="fileName" value="1标书文件-原文件 - 复制.png/1标书文件-原文件.png">
+    </label>
+    <br>
+    <label>
+        文件:
+        <input type="file" name="image">
     </label>
     <br>
     <input type="submit">
 </form>
-<a href="/index.do">jump</a>
+<a href="index.do">jump</a>
+<br>
+<a href="download.do" target="_blank">download</a>
 
 </body></html>
