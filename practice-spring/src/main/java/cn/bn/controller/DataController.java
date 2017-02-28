@@ -1,6 +1,8 @@
 package cn.bn.controller;
 
+import cn.bn.service.TestBeanService;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -9,8 +11,14 @@ import org.springframework.stereotype.Controller;
  * @date : 2016-09-29 PM03:52
  */
 @Controller
-public class DataController implements InitializingBean {
+public class DataController extends AbstractAction implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         System.out.println("init " + this.getClass().getName());
     }
+
+    @Autowired
+    public void setName(TestBeanService name) {
+        this.name = name;
+    }
+
 }

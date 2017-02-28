@@ -15,6 +15,7 @@
         <module>practice-server</module>
         <module>practice-client</module>
         <module>practice-service</module>
+        <module>practice-interface</module>
     </modules>
     <dependencyManagement>
         <dependencies>

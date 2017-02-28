@@ -1,5 +1,6 @@
 package cn.bn.main;
 
+import cn.bn.controller.DataController;
 import cn.bn.entity.Car;
 import cn.bn.entity.DataBean;
 import cn.bn.entity.DateEntity;
@@ -25,8 +26,8 @@ public class launcher {
 
 //        DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();
 //        beanFactory.registerSingleton("dataBean", new DataBean("test", "source"));
-//        DataController bean = context.getBean(DataController.class);
-//        System.out.println(bean);
+        DataController dataController = context.getBean(DataController.class);
+        System.out.println(dataController);
 
         // 2.测试aop
         DataBean dataBean = context.getBean(DataBean.class);

@@ -14,4 +14,9 @@ import org.springframework.stereotype.Service;
 public class TestBeanServiceImpl implements TestBeanService {
     @Autowired
     private DataBeanService dataBeanService;
+
+    @Override
+    public void sayName() {
+        System.out.println(">>>>>>>>>>>>>>> name");
+    }
 }

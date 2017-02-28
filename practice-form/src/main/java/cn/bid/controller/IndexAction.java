@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
-import java.util.Arrays;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -92,13 +93,30 @@ public class IndexAction {
     }
 
     private void setResponseHeader(HttpServletResponse response, HttpServletRequest request, String fileName) throws Exception {
-        response.setContentType("application/zip;charset=utf-8");
-        if (request.getHeader("USER-AGENT").toLowerCase().indexOf("msie") > 0) {
-            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(encode(fileName), "utf-8"));
+//        response.setContentType("application/zip;charset=utf-8");
+        String userAgent = request.getHeader("USER-AGENT").toLowerCase();
+        if (userAgent.indexOf("msie") > 0 || userAgent.indexOf("rv:11.0") > -1) {
+            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "utf-8"));
         } else {
             response.setHeader("Content-Disposition", "attachment;filename=" + new String(fileName.getBytes("utf-8"), "iso-8859-1"));
         }
-//        response.setHeader("Content-Disposition", "attachment;filename=" + encode(fileName));
+    }
+
+    /**
+     * 获取ie浏览器的版本号
+     *
+     * @param request
+     * @return
+     */
+    private static Double getIEVersion(HttpServletRequest request) {
+        String userAgent = request.getHeader("USER-AGENT");
+        Pattern iePattern = Pattern.compile("MSIE\\s+(\\d+\\.\\d+)");
+        Matcher matcher = iePattern.matcher(userAgent);
+        Double ieVersion = null;
+        if (matcher.find()) {
+            ieVersion = Double.valueOf(matcher.group(1));
+        }
+        return ieVersion;
     }
 
     public String encode(String fileName) {
