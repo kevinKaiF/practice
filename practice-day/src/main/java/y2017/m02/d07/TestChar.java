@@ -3,7 +3,7 @@ package y2017.m02.d07;
 import org.junit.Test;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2017-02-07 PM04:29
  */

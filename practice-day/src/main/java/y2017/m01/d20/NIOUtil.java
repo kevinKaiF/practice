@@ -1,7 +1,7 @@
 package y2017.m01.d20;
 
 /**
- * @author : <a href="mailto:zikaifeng@ebnew.com">冯子恺</a>
+ * @author : kevin
  * @version : Ver 1.0
  * @date : 2017-01-20 AM11:07
  */
