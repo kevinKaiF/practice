@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 
 /**
@@ -29,6 +30,17 @@ public class TestProxy {
         System.out.println(name);
     }
 
+    @Test
+    public void testModifier() {
+        System.out.println(Modifier.isPublic(HelloService.class.getModifiers()));
+    }
+
+    /**
+     * 生成Proxy代理类，使用sun.misc.ProxyGenerator.saveGeneratedFiles参数来设置保存代理类。
+     * 如果代理接口的public的则会生成在项目的com/sun/proxy目录下（相对于项目根目录）
+     * 否则在代理对应的目录下（相对于项目根目录）
+     * @param args
+     */
     public static void main(String[] args) {
 //        需要在工程根目录建立com/sun/proxy文件夹
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");

@@ -1,5 +1,6 @@
 package y2016.m12.d30;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
@@ -67,5 +68,15 @@ public class ReflectUtils {
             return clazz.getName() + sb.toString();
         }
         return clazz.getName();
+    }
+
+    public static String getDesc(Constructor<?> c) {
+        StringBuilder sb = new StringBuilder("(");
+        Class<?>[] parameterTypes = c.getParameterTypes();
+        for (int i = 0; i < parameterTypes.length; i++) {
+            sb.append(getDesc(parameterTypes[i]));
+        }
+        sb.append(")").append("V");
+        return sb.toString();
     }
 }

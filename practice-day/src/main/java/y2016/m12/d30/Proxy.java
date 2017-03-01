@@ -125,18 +125,18 @@ public class Proxy {
                         Class<?> returnType = method.getReturnType();
                         Class<?>[] parameterTypes = method.getParameterTypes();
 
-                        StringBuilder code = new StringBuilder("Object[] args = new Object[").append(parameterTypes.length).append("];");
+                        StringBuilder methodBody = new StringBuilder("Object[] args = new Object[").append(parameterTypes.length).append("];");
                         for (int j = 0; j < parameterTypes.length; j++) {
-                            code.append("args[").append(j).append("] = ").append("($w)$").append(j + 1).append(";");
+                            methodBody.append("args[").append(j).append("] = ").append("($w)$").append(j + 1).append(";");
                         }
-                        code.append(" Object ret = handler.invoker(this, methods[" + size + "], args;");
+                        methodBody.append(" Object ret = handler.invoker(this, methods[" + size + "], args;");
 
                         if (!Void.class.equals(returnType)) {
-                            code.append("return ").append(asArgument(returnType, "ret")).append(";");
+                            methodBody.append("return ").append(asArgument(returnType, "ret")).append(";");
                         }
 
                         methods.add(method);
-                        ccp.addMethod(method.getName(), method.getModifiers(), returnType, parameterTypes, method.getExceptionTypes(), code.toString());
+                        ccp.addMethod(method.getName(), method.getModifiers(), returnType, parameterTypes, method.getExceptionTypes(), methodBody.toString());
                     }
                 }
 
@@ -152,7 +152,8 @@ public class Proxy {
             ccp.addField("private " + InvocationHandler.class.getName() + " handler");
             ccp.addConstructor(Modifier.PUBLIC, new Class<?>[]{InvocationHandler.class}, new Class<?>[0], "handler=$1");
             ccp.addDefaultConstructor();
-            Class<?> proxyInstanceClass = ccp.toClass();
+            Class<?> clazz = ccp.toClass();
+            clazz.getField("methods").set(null, methods.toArray(new Method[0]));
 
             // create proxy class
             String proxyPackageName = Proxy.class.getName() + id;

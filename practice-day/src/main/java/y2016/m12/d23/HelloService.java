@@ -6,6 +6,6 @@ package y2016.m12.d23;
  * @description :
  * @date : 2016/12/23
  */
-public interface HelloService {
+interface HelloService {
     String getName();
 }
