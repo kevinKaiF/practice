@@ -77,19 +77,16 @@ public class Handler implements Runnable {
                 if (outputIsComplete()) {
                     selectionKey.cancel();
                 }
-                Thread.sleep(5000);
                 socketChannel.shutdownOutput();
             }
         } catch (IOException e) {
 //            e.printStackTrace();
             selectionKey.cancel();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
     private boolean outputIsComplete() {
-        return false;
+        return true;
     }
 
     private ResponseEntity read() throws IOException {
@@ -115,19 +112,7 @@ public class Handler implements Runnable {
             }
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            handleException(responseEntity, e.getMessage());
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-            handleException(responseEntity, e.getMessage());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            handleException(responseEntity, e.getMessage());
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-            handleException(responseEntity, e.getMessage());
-        } catch (NoSuchMethodException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             handleException(responseEntity, e.getMessage());
         }
