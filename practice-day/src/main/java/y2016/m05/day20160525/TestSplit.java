@@ -1,7 +1,7 @@
 package y2016.m05.day20160525;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
-import cn.bidlink.framework.core.utils.DateUtils;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
@@ -175,7 +175,7 @@ public class TestSplit {
             if (String.class.isAssignableFrom(clazz)) {
                 field.set(t, value);
             } else if (Date.class.isAssignableFrom(clazz)) {
-                Date date = DateUtils.parse(value);
+                Date date = DateTime.parse(value).toDate();
                 if (date != null) {
                     field.set(t, date);
                 }
