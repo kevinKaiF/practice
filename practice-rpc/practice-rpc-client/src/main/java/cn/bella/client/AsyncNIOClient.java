@@ -20,19 +20,25 @@ import java.util.concurrent.TimeUnit;
  * @version : Ver 1.0
  * @date : 2017-01-20 AM11:11
  */
-public class NIOClient implements Runnable, Client {
-    // note : 并没有使用synchronousQueue，会出问题
-    private BlockingQueue<ResponseEntity> responseQueue = new ArrayBlockingQueue<>(1);
+public class AsyncNIOClient implements Runnable, Client {
     private SocketChannel socketChannel;
+    // note : 并没有使用synchronousQueue
+    private BlockingQueue<byte[]> requestQueue = new ArrayBlockingQueue<>(1);
+    private Thread sender;
+    private Thread receiver;
+    private BlockingQueue<ResponseEntity> responseQueue = new ArrayBlockingQueue<>(1);
 
-    public NIOClient(String host, int port) throws IOException {
+    public AsyncNIOClient(String host, int port) throws IOException {
         this.socketChannel = SocketChannel.open();
         this.socketChannel.connect(new InetSocketAddress(host, port));
+        this.sender = new Thread(new Sender());
+        this.receiver = new Thread(new Receiver());
     }
 
     @Override
     public void run() {
-
+        sender.start();
+        receiver.start();
     }
 
     private void receive() {
@@ -58,13 +64,12 @@ public class NIOClient implements Runnable, Client {
 
     @Override
     public void sendMessage(RequestEntity remoteEntity) {
-        send(SerializeObject.serialize(remoteEntity));
+        requestQueue.offer(SerializeObject.serialize(remoteEntity));
     }
 
     @Override
     public ResponseEntity receiveMessage() {
         try {
-            receive();
             return responseQueue.poll(10L, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -72,17 +77,34 @@ public class NIOClient implements Runnable, Client {
         }
     }
 
-    private void send(byte[] message) {
+    class Sender implements Runnable {
+        @Override
+        public void run() {
+            AsyncNIOClient.this.send();
+        }
+    }
+
+    private void send() {
         try {
+            byte[] message = requestQueue.take();
             if (message != null) {
                 ByteBuffer buffer = ByteBuffer.wrap(message);
                 socketChannel.write(buffer);
                 System.out.println(">>>已发送");
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    class Receiver implements Runnable {
+        @Override
+        public void run() {
+            receive();
         }
     }
 }

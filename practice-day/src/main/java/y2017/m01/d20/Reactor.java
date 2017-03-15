@@ -32,7 +32,8 @@ public class Reactor implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                selector.select();
+                int select = selector.select();
+                System.out.println("select:" + select);
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
 //                System.out.println(selectionKeys.size() > 0 ? selectionKeys.iterator().next().readyOps() : -1);
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
@@ -40,6 +41,7 @@ public class Reactor implements Runnable {
                     dispatcher(iterator.next());
                 }
                 selectionKeys.clear();
+                System.out.println("+");
             }
         } catch (IOException e) {
             e.printStackTrace();

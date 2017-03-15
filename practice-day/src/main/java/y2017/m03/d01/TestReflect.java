@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.math.BigDecimal;
+import java.util.concurrent.SynchronousQueue;
 
 /**
  * @author : kevin
@@ -47,5 +49,52 @@ public class TestReflect {
         public void setM(Method m) {
             this.m = m;
         }
+    }
+
+    @Test
+    public void testQueue() throws InterruptedException {
+        final SynchronousQueue<String> queue = new SynchronousQueue<>();
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                queue.offer("test1");
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    System.out.println(queue.take());
+                    System.out.println(queue.poll());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+
+
+//        queue.offer("test1");
+//        queue.offer("test1");
+//        queue.offer("test1");
+//        queue.offer("test1");
+//        System.out.println(queue.size());
+//        System.out.println(queue.take());
+//        System.out.println(queue.take());
+//        System.out.println(queue.take());
+//        System.out.println(queue.take());
+//        System.out.println(queue.take());
+//        System.out.println(queue.take());
+        Thread.sleep(3000);
+    }
+
+    @Test
+    public void testBigDecimal() {
+        BigDecimal bigDecimal = BigDecimal.valueOf(1111111.111111);
+        System.out.println(bigDecimal.doubleValue());
     }
 }
