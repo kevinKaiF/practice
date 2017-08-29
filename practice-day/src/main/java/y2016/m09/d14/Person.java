@@ -10,6 +10,19 @@ public class Person {
     private String password;
     private int age;
     private Long roadLength;
+    private String test11;
+    private boolean ok;
+
+    public String getTest() {
+        return test11;
+    }
+
+    public void setTest(String test11) {
+        this.test11 = test11;
+    }
+
+    public Person() {
+    }
 
     public Person(String name, String password, int age) {
         this.name = name;
@@ -62,8 +75,11 @@ public class Person {
 
     }
 
+
     @Override
     public int hashCode() {
        return 31;
     }
+
+
 }

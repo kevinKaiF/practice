@@ -37,7 +37,7 @@ public class TestProxy {
 
     /**
      * 生成Proxy代理类，使用sun.misc.ProxyGenerator.saveGeneratedFiles参数来设置保存代理类。
-     * 如果代理接口的public的则会生成在项目的com/sun/proxy目录下（相对于项目根目录）
+     * 如果代理接口的<b>public</b>的则会生成在项目的com/sun/proxy目录下（相对于项目根目录）
      * 否则在代理对应的目录下（相对于项目根目录）
      * @param args
      */

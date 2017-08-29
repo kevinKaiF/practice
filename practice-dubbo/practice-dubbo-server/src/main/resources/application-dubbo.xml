@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:d="http://code.alibabatech.com/schema/dubbo" xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:application.properties"/>
+
+	<!--logger:配置日志-->
+	<!--slf4j-->
+	<!--log4j-->
+	<!--jcl-->
+	<!--jdk-->
+	<d:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" logger="slf4j"/>
+
+	<!--dispatcher-->
+	<!--all:所有消息都转发到线程池，包括请求，响应，连接事件，断开事件，心跳等-->
+	<!--direct:所有的消息都不转发到线程池，直接io线程上直接执行-->
+	<!--message:只有请求响应消息派发到线程池，其他的连接断开事件，心跳等消息，直接在io线程上执行-->
+	<!--execution:只有请求消息派发到线程池，不含响应，响应，其他的连接断开事件，心跳等消息，直接在io线程上执行-->
+	<!--connection:在io线程上，将连接断开事件放入队列，有序逐个执行，其他消息派发到线程池-->
+
+	<!--threadpool-->
+	<!--fixed:默认，固定线程池，启动时建立，一直持有-->
+	<!--cached:空闲一分钟自动删除-->
+	<!--limited:可伸缩的线程池，线程一直增长-->
+
+	<!--配置服务所支持的协议，可以配置多个-->
+
+	<!--缺省主机端口与协议相关-->
+	<!--dubbo: 20880
+		rmi: 1099
+		http: 80
+		hessian: 80
+		webservice: 80
+		memcached: 11211
+		redis: 6379-->
+	<d:protocol name="dubbo" port="${dubbo.protocol.port}" dispatcher="all" threadpool="fixed" threads="10" serialization=""/>
+
+	<!--suscribe:false表示禁止客户端订阅，服务端只注册-->
+	<!--register:false表示服务端禁止注册，客户端只订阅-->
+	<!--default: TODO-->
+	<d:registry default="true" id="default_dubbo_registry" subscribe="true" register="true" address="${dubbo.registry.address}" protocol="zookeeper" timeout="100000" group="${dubbo.registry.group}"/>
+	<!--<d:registry id="default_dubbo_registry" address="${dubbo.registry.address}" protocol="zookeeper" timeout="100000"/>-->
+
+	<!--cluster:集群容错策略-->
+	<!--failover:服务失败后尝试，可以retries配置尝试次数-->
+	<!--failfast:服务失败后立即报错，通常用于非等幂操作，例如新增-->
+	<!--failsafe:服务失败后忽略，通常用于写入审计日志操作-->
+	<!--failback:失败自动恢复，后台记录失败请求，定时重发，通常用于消息操作-->
+
+	<!--delay:-1,延迟到spring初始化完毕后，在暴露服务，基于spring的ContextRefreshedEvent事件触发暴露-->
+	<d:provider threadpool="cached" loadbalance="roundrobin" cluster="failfast" delay="-1"/>
+
+	<!--loadbalance负载均衡-->
+	<!--random:按权重weight设置随机概率，调用量越大越均匀-->
+	<!--roundrobin:按公约后的权重weight设置轮询比率-->
+	<!--leastactive:最少活跃调用数，相同活跃数的随机，活跃数指调用前后计数差-->
+	<!--consistenthash:一致性hash-->
+
+	<!--registry:可以同时向多个注册中心注册（逗号隔开），不同的服务可以可以按指定的registry注册-->
+	<!--validation:服务端参数验证-->
+	<!--cache缓存策略-->
+	<!--lru:-->
+	<!--mock本地伪装，当服务调用失败后，执行mock，通常用于服务降级-->
+	<!--如果客户端消费使用try...catch，考虑使用mock为return null-->
+	<!--delay:延迟暴露，可能服务初始化缓存，等待相关资源就位等等-->
+	<!--executes:服务端并发执行的个数-->
+	<d:service registry="default_dubbo_registry" executes="10" delay="0" mock="" cache="lru" validation="true" interface="com.bella.service.HelloService" ref="helloService" loadbalance="random"/><!--暴露服务-->
+
+	<!--<d:annotation package="cn.bella.service"/>-->
+	<bean id="helloService" class="com.bella.service.impl.HelloServiceImpl"/>
+	<bean id="name" class="java.lang.String">
+		<constructor-arg>
+			<value>4444</value>
+		</constructor-arg>
+	</bean>
+</beans>

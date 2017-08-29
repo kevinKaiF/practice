@@ -16,6 +16,7 @@ public class AopClass {
     public void before() {
         System.out.println("before");
         startTime = System.currentTimeMillis();
+        return;
     }
 
     @After("joinPoint()")

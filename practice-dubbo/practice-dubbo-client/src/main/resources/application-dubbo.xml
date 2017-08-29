@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:d="http://code.alibabatech.com/schema/dubbo" xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:application.properties"/>
+	<d:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" />
+	<!--check:注册中心启动时检查，注册订阅失败报错，默认是true-->
+	<!--address:可以是多个地址，用|分隔-->
+	<!--group:服务可以分组，对应服务端的d:registry-->
+	<d:registry check="true" id="default_dubbo_registry" address="${dubbo.registry.address}" protocol="zookeeper" timeout="100000" group="${dubbo.registry.group}"/>
+	<!--check:所有服务的启动检查，没有提供者报错，默认是true-->
+	<d:consumer loadbalance="roundrobin" timeout="${dubbo.consumer.timeout}" check="true"/>
+	<!--check:某个服务的启动检查，没有提供者报错，默认是true-->
+	<!--group:服务可以分组，可以服务端d:service-->
+	<!--validation:客户端参数验证-->
+	<!--cache:缓存到本地-->
+	<!--actives:客户端并发执行的个数-->
+	<d:reference cache="true" actives="10" registry="default_dubbo_registry" validation="true" id="helloService" group="" interface="com.bella.service.HelloService" check="true"/>
+</beans>

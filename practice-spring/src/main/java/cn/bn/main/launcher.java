@@ -58,6 +58,7 @@ public class launcher {
         TestBeanService testBeanService = context.getBean(TestBeanService.class);
 
         DataBean bean = context.getBean(DataBean.class);
+        System.out.println(bean.getName() + ">>>>>>>>>>>>>>>>>>>>>>>>");
         bean.setData("My Data");
         // 7.自定义属性编辑器
         // 自定义属性编辑器有三种方式:

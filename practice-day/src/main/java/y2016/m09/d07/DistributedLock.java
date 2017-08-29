@@ -15,8 +15,9 @@ import java.util.concurrent.Semaphore;
  */
 public class DistributedLock {
     private static final int SESSION_TIMEOUT = 5000;
+    private String DEFAULT_ZOOKEEPER_HOST = "10.0.0.166,10.0.0.169,10.0.0.170,10.0.0.165";
     private final String root = "/cookieLock";
-    private final String host = "10.0.0.166,10.0.0.169,10.0.0.170,10.0.0.165"; // 使用默认的2181端口
+    private String host ; // 使用默认的2181端口
 
     private String token;
     private String path;
@@ -34,6 +35,12 @@ public class DistributedLock {
     public DistributedLock(int taskNum) {
         this.taskNum = taskNum;
         this.validated = false;
+        this.host = DEFAULT_ZOOKEEPER_HOST;
+    }
+    public DistributedLock(int taskNum, String host) {
+        this.taskNum = taskNum;
+        this.validated = false;
+        this.host = host;
     }
 
 

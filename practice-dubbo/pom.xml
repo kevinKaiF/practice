@@ -12,6 +12,8 @@
     <modules>
         <module>practice-dubbo-client</module>
         <module>practice-dubbo-server</module>
+        <module>practice-dubbo-service</module>
+        <module>practice-dubbo-impl</module>
     </modules>
 
     <artifactId>practice-dubbo</artifactId>

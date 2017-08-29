@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @date : 2016-09-19 PM05:38
  */
 @Component
-public class DataBean {
+public class DataBean extends AbstractBean{
     private String data;
     private String source;
 

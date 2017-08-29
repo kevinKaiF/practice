@@ -25,8 +25,9 @@ public class TestInteger {
     public void testJoda() throws InterruptedException {
         DateTime curr = new DateTime();
         Thread.sleep(new Random().nextInt(100));
-        DateTime last = new DateTime().plusDays(-1);
+        DateTime last = new DateTime().plusDays(-2);
         Interval interval = new Interval(last, curr);
+        System.out.println(curr.isAfter(last));
         Period period = interval.toPeriod();
         String duration = period.getDays() + "天" + period.getHours() + "时" + period.getMinutes() + "分" + period.getSeconds() + "秒";
         System.out.println(duration);

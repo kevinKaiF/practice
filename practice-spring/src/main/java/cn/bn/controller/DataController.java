@@ -4,6 +4,7 @@ import cn.bn.service.TestBeanService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author : kevin
@@ -19,6 +20,11 @@ public class DataController extends AbstractAction implements InitializingBean {
     @Autowired
     public void setName(TestBeanService name) {
         this.name = name;
+    }
+
+    @RequestMapping("/test")
+    public void testRequestMapping() {
+
     }
 
 }

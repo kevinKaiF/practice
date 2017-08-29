@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>表格单元格分割线</title>
+    <!-- 此文件为了显示Demo样式，项目中不需要引入 -->
+    <link href="http://www.builive.com/assets/code/demo.css" rel="stylesheet">
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+    <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="demo-content">
+        <div class="row">
+            <div class="span16">
+                <div id="bar">
+                </div>
+            </div>
+        </div>
+        <div id="test">
+            <h3><a href="www.baidu.com">测试</a></h3>
+        </div>
+        <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+        <script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+        <script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+        <!-- script start -->
+        <script type="text/javascript">
+        var text = $("#test").find("h3>a").text();
+        console.log(text)
+        BUI.use(['bui/toolbar', 'bui/data'], function(Toolbar, Data) {
+            var NumerPBar = Toolbar.NumberPagingBar,
+                Store = Data.Store;
+
+            var store = new Store({
+                    autoLoad: true,
+                    data: [{
+                        "test": 1
+                    }, {
+                        "test": 1
+                    }, {
+                        "test": 1
+                    }, {
+                        "test": 1
+                    }, {
+                        "test": 1
+                    }],
+                    pageSize: 1,
+                    listeners : {
+                    // beforeprocessload : function (ev) {
+                    //   console.log(ev)
+                    //     ev.data.results = 9 
+                    // }
+                   },
+                }),
+                bar = new NumerPBar({
+                    render: '#bar',
+                    autoRender: true,
+                    elCls: 'pagination',
+                    store: store,
+                    prevText: '上一页',
+                    nextText: '下一页',
+                    listeners: {
+                        click : function() {
+                            var lis = $("#bar").find("li");
+                            lis.each(function(i, e) {
+                              if (i == 0 || i == lis.length - 1) {}
+                                else {
+                                  $(e).hide();
+                                }
+                              
+                            })
+                        }
+                    }
+                });
+                $.get("http://localhost:8047/advertisement?companyId=1112799686", function(data) {
+                    console.log(data)
+                })
+                store.load();
+                 var lis = $("#bar").find("li");
+                            lis.each(function(i, e) {
+                              if (i == 0 || i == lis.length - 1) {}
+                                else {
+                                  $(e).hide();
+                                }
+                              
+                            })
+                              console.log(store.getTotalCount())
+                              console.log(store.get('pageIndex'))
+                              console.log(store.get('pageSize'))
+                              console.log()
+        });
+        </script>
+        <!-- script end -->
+    </div>
+</body>
+
+</html>

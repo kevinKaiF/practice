@@ -48,7 +48,7 @@ public class TestString {
         String s1 = "test1";
         String s2 = "test2";
         System.out.println(String.format("%1$-10s %2$s\tppp", s1, s2));
-        System.out.println(String.format("%-10s %s", s1, s2));
+        System.out.println(String.format("%-10s \n%s", s1, s2));
         System.out.println(String.format("%10s %s", s1, s2));
     }
 

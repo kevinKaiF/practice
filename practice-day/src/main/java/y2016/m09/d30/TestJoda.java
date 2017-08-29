@@ -19,5 +19,9 @@ public class TestJoda {
 
         DateTime dateTime = new DateTime(System.currentTimeMillis());
         System.out.println(dateTime.toString("yyyyMMdd"));
+
+        DateTime plus = new DateTime().plusDays(1).plus(-new DateTime().getMillis());
+        int dayOfYear = plus.getDayOfYear();
+        System.out.println(dayOfYear);
     }
 }

@@ -15,6 +15,7 @@
         <module>practice-remote</module>
         <module>practice-dubbo</module>
         <module>practice-rpc</module>
+        <module>practice-kafka</module>
     </modules>
     <build>
         <plugins>
