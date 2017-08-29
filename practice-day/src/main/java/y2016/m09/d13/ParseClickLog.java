@@ -1,6 +1,5 @@
 package y2016.m09.d13;
 
-import com.alibaba.dubbo.common.json.ParseException;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import y2016.m08.day20160811.ParseDir;
@@ -139,9 +138,7 @@ public class ParseClickLog {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } finally {
+        }  finally {
             Closer.closeQuietly(reader);
         }
 
@@ -184,7 +181,7 @@ public class ParseClickLog {
         }
     }
 
-    private String buildKey(String[] arr, ClickType clickType) throws ParseException {
+    private String buildKey(String[] arr, ClickType clickType) {
         String key = null;
         switch (clickType) {
             case LINK:  // t1.type,t1.url,t1.userid,t1.identifier,t1.info['innerHTML'];

@@ -1,6 +1,5 @@
 package y2016.m07.day20160705;
 
-import cn.bidlink.framework.core.exceptions.VerifyException;
 import org.apache.commons.lang.ArrayUtils;
 import org.hibernate.validator.internal.engine.ConstraintViolationImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
@@ -56,7 +55,7 @@ public class ValidatorUtils {
         Object sets = null;
         if(obj == null) {
             sets = new HashSet();
-            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("", "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor) null, (ElementType) null));
+            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("",null, "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor) null, (ElementType) null));
         }
 
         if(obj != null) {
@@ -74,7 +73,7 @@ public class ValidatorUtils {
         Object sets = null;
         if(obj == null) {
             sets = new HashSet();
-            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("", "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
+            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("", null, "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
         }
 
         if(obj != null) {
@@ -92,7 +91,7 @@ public class ValidatorUtils {
         Object sets = null;
         if(beanType == null) {
             sets = new HashSet();
-            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("", "beanType  can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
+            ((Set)sets).add(ConstraintViolationImpl.forBeanValidation("", null, "beanType  can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
         }
 
         if(beanType != null) {
@@ -112,7 +111,7 @@ public class ValidatorUtils {
             Iterator i$ = sets.iterator();
             if(i$.hasNext()) {
                 ConstraintViolation cv = (ConstraintViolation)i$.next();
-                throw new VerifyException(cv.getPropertyPath() + "  " + cv.getMessage());
+                throw new RuntimeException(cv.getPropertyPath() + "  " + cv.getMessage());
             }
         }
 
@@ -125,7 +124,7 @@ public class ValidatorUtils {
             Iterator i$ = sets.iterator();
             if(i$.hasNext()) {
                 ConstraintViolation cv = (ConstraintViolation)i$.next();
-                throw new VerifyException(cv.getPropertyPath() + "  " + cv.getMessage());
+                throw new RuntimeException(cv.getPropertyPath() + "  " + cv.getMessage());
             }
         }
 
@@ -136,7 +135,7 @@ public class ValidatorUtils {
         HashSet sets = null;
         if(obj == null) {
             sets = new HashSet();
-            sets.add(ConstraintViolationImpl.forBeanValidation("", "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
+            sets.add(ConstraintViolationImpl.forBeanValidation("", null, "verify obj can\'t be null! ", Object.class, "", "", "", PathImpl.createPathFromString(""), (ConstraintDescriptor)null, (ElementType)null));
         }
 
         if(includeFields != null) {
@@ -153,7 +152,7 @@ public class ValidatorUtils {
                 Iterator var15 = var13.iterator();
                 if(var15.hasNext()) {
                     ConstraintViolation var17 = (ConstraintViolation)var15.next();
-                    throw new VerifyException(var17.getPropertyPath() + "  " + var17.getMessage());
+                    throw new RuntimeException(var17.getPropertyPath() + "  " + var17.getMessage());
                 }
             }
 
@@ -178,7 +177,7 @@ public class ValidatorUtils {
                 Iterator var18 = setsRes.iterator();
                 if(var18.hasNext()) {
                     ConstraintViolation var20 = (ConstraintViolation)var18.next();
-                    throw new VerifyException(var20.getPropertyPath() + "  " + var20.getMessage());
+                    throw new RuntimeException(var20.getPropertyPath() + "  " + var20.getMessage());
                 }
             }
 
@@ -192,7 +191,7 @@ public class ValidatorUtils {
             Iterator i$ = sets.iterator();
             if(i$.hasNext()) {
                 ConstraintViolation cv = (ConstraintViolation)i$.next();
-                throw new VerifyException(cv.getPropertyPath() + "  " + cv.getMessage());
+                throw new RuntimeException(cv.getPropertyPath() + "  " + cv.getMessage());
             }
         }
 
@@ -211,7 +210,7 @@ public class ValidatorUtils {
                 buf.append(cv.getPropertyPath()).append(" ").append(cv.getMessage()).append("\r\n");
             }
 
-            throw new VerifyException(buf.toString());
+            throw new RuntimeException(buf.toString());
         } else {
             return sets;
         }
