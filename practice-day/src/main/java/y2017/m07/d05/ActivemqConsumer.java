@@ -38,7 +38,7 @@ public class ActivemqConsumer {
             session = connection.createSession(Boolean.FALSE,
                                                Session.AUTO_ACKNOWLEDGE);
             // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
-            destination = session.createQueue("test");
+            destination = session.createQueue("bid-queue-smart");
             consumer = session.createConsumer(destination);
             while (true) {
                 //设置接收者接收消息的时间，为了便于测试，这里谁定为100s

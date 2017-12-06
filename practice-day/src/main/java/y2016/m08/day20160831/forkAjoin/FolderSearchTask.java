@@ -44,8 +44,8 @@ public class FolderSearchTask extends RecursiveTask<Long> {
     }
 
     public static void main(String[] args) throws IOException {
-        String folderPath = "C:\\Users\\Administrator\\Desktop\\bdVSeb\\08";
-        String searchWord = "count";
+        String folderPath = "E:\\workspace\\databus";
+        String searchWord = "public";
         WordCounter wordCounter = new WordCounter();
         Folder folder = Folder.fromDirectory(new File(folderPath));
         long start = System.currentTimeMillis();

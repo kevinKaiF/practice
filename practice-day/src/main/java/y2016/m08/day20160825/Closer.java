@@ -1,6 +1,5 @@
 package y2016.m08.day20160825;
 
-import java.io.Closeable;
 import java.io.IOException;
 
 /**
@@ -9,11 +8,13 @@ import java.io.IOException;
  * @date : 2016-08-25 PM04:04
  */
 public class Closer {
-    public static void closeQuietly(Closeable closeable) {
+    public static void closeQuietly(AutoCloseable closeable) {
         if(closeable != null) {
             try {
                 closeable.close();
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

@@ -1,7 +1,6 @@
 package y2017.m08.d09;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.ValueFilter;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.junit.Test;
@@ -27,16 +26,16 @@ public class TestJson {
         System.out.println(JSON.toJSONString(map));
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         System.out.println(simpleDateFormat.format(value));
-        System.out.println(JSON.toJSONString(map, new ValueFilter() {
-            @Override
-            public Object process(Object object, String propertyName, Object propertyValue) {
-                if (propertyValue instanceof Date) {
-                    return new DateTime(propertyValue).toString("yyyy-MM-dd'T'HH:mm:ss.SSSZZ");
-                } else {
-                    return propertyValue;
-                }
-            }
-        }));
+//        System.out.println(JSON.toJSONString(map, new ValueFilter() {
+//            @Override
+//            public Object process(Object object, String propertyName, Object propertyValue) {
+//                if (propertyValue instanceof Date) {
+//                    return new DateTime(propertyValue).toString("yyyy-MM-dd'T'HH:mm:ss.SSSZZ");
+//                } else {
+//                    return propertyValue;
+//                }
+//            }
+//        }));
     }
 
     @Test
