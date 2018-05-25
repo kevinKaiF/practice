@@ -127,35 +127,35 @@ public class TestThreadPoolExecutorWorker {
      * 其属性firstTask是execute执行的Runnable对象
      */
     public void testThreadPool1() throws InterruptedException {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 10, 1000, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
-        threadPoolExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                while (true ) {
-                    System.out.println(Thread.currentThread().getName());
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-        threadPoolExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                while (true ) {
-                    System.out.println(Thread.currentThread().getName());
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-        Thread.currentThread().join();
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 10, 1000, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+//        threadPoolExecutor.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true ) {
+//                    System.out.println(Thread.currentThread().getName());
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//
+//        threadPoolExecutor.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true ) {
+//                    System.out.println(Thread.currentThread().getName());
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//
+//        Thread.currentThread().join();
     }
 }

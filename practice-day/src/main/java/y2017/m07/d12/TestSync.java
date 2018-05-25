@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class TestSync {
     @Test
     public void testSync() throws InterruptedException {
-        String name = "test";
-        AtomicBoolean start = new AtomicBoolean(true);
+        final String name = "test";
+        final AtomicBoolean start = new AtomicBoolean(true);
         new Thread(new Runnable() {
             @Override
             public void run() {

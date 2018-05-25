@@ -18,7 +18,7 @@ public class TestCountDownLatch {
         // 非公平的
         // countDownLatch的行为是主线程是被动的，当全部子线程执行任务，才唤醒主线程
         // countDownLatch是无法重新置位，复用的
-        CountDownLatch countDownLatch = new CountDownLatch(2);
+        final CountDownLatch countDownLatch = new CountDownLatch(2);
 
         new Thread(new Runnable() {
             @Override

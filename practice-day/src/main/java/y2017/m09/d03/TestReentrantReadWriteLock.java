@@ -68,7 +68,7 @@ public class TestReentrantReadWriteLock {
         // (如果next节点是写锁，写锁被唤醒一次继续park)
         // （为什么不是写锁呢？因为本案例只有读锁，所以写锁会直接获取到不用等待）。唤醒的锁会继续唤醒等待的读锁，这样就实现了读锁的共享。
         // 首次获取读锁，firstReader为当前线程，并firstReaderHoldCount=1。如果重入的话，firstReaderHoldCount++
-        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        final ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
         readLock.lock();
 
         new Thread(new Runnable() {
@@ -100,7 +100,7 @@ public class TestReentrantReadWriteLock {
     @Test
     public void testWriteLock() {
         ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
-        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        final ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
         // 写锁是独占锁，tryAcquire获取独占锁，如果exclusiveOwnerThread为null，则成功获取锁。
         // 重入则state+1
         // 否则加入等待队列，节点的模式独占模式。

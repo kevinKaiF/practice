@@ -17,7 +17,7 @@ public class TestCycleBarrier {
         // CyclicBarrier定义了parties的数目，表示可控制子线程的数目
         // CyclicBarrier相对于CountDownLatch，则是主线程更加有主动权，而且可以循环利用
         // CyclicBarrier的阻塞和唤醒都是靠Condition#await方法实现的，当parties==0则进行唤醒操作
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(2, new Runnable() {
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(2, new Runnable() {
             @Override
             public void run() {
                 System.out.println("GG");

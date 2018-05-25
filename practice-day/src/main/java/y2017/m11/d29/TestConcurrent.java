@@ -48,7 +48,7 @@ public class TestConcurrent {
 
     @Test
     public void testSynchronizedQueue() throws InterruptedException {
-        SynchronousQueue<String> queue = new SynchronousQueue<>();
+        final SynchronousQueue<String> queue = new SynchronousQueue<>();
         new Thread(new Runnable() {
             @Override
             public void run() {

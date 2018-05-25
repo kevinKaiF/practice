@@ -32,7 +32,7 @@ public class TestString {
         currentDate.set(new Date());
 
         ExecutorService executorService = Executors.newCachedThreadPool();
-        CountDownLatch countDownLatch = new CountDownLatch(4);
+        final CountDownLatch countDownLatch = new CountDownLatch(4);
         for (int i = 0; i < 4; i++) {
             executorService.execute(new Runnable() {
                 @Override
