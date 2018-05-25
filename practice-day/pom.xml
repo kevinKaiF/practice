@@ -232,22 +232,22 @@
             <version>5.7.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>cn.bidlink.portal</groupId>
-            <artifactId>pmp-baseInfo-api</artifactId>
-            <version>0.0.6-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-lang</artifactId>
-                    <groupId>commons-lang</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>cn.bidlink.baseInfo.usercenter</groupId>
-            <artifactId>usercenter-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>cn.bidlink.portal</groupId>-->
+            <!--<artifactId>pmp-baseInfo-api</artifactId>-->
+            <!--<version>0.0.6-SNAPSHOT</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>commons-lang</artifactId>-->
+                    <!--<groupId>commons-lang</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>cn.bidlink.baseInfo.usercenter</groupId>-->
+            <!--<artifactId>usercenter-service</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>ojdbc</groupId>
