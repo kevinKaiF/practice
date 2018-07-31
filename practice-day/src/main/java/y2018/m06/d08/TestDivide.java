@@ -1,11 +1,16 @@
 package y2018.m06.d08;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.base.Joiner;
+import com.google.common.collect.Maps;
+import com.googlecode.aviator.AviatorEvaluator;
+import com.googlecode.aviator.Expression;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,5 +97,34 @@ public class TestDivide {
     public void testThreadMonitor() {
         ThreadMonitor threadMonitor = new ThreadMonitor();
         threadMonitor.monitor();
+    }
+
+
+    @Test
+
+    public void testAviator() {
+        List<String> rules = Arrays.asList( "double(value)>=0.0 && double(value)<0.1 ? 10",
+                "double(value)>=0.1 && double(value)<0.2 ? 20",
+                "double(value)>=0.2 && double(value)<0.3 ? 30",
+                "double(value)>=0.3 && double(value)<0.4 ? 40",
+                "double(value)>=0.4 && double(value)<0.5 ? 50",
+                "double(value)>=0.5 && double(value)<0.6 ? 60",
+                "double(value)>=0.6 && double(value)<0.7 ? 70",
+                "double(value)>=0.7 && double(value)<0.8 ? 80",
+                "double(value)>=0.8 && double(value)<0.9 ? 90",
+                "double(value)>=0.9 && double(value)<1.0 ? 100",
+                "double(value)>=1.0 ? 100 : 1");
+        String rule = Joiner.on(":").skipNulls().join(rules);
+        Expression expression = AviatorEvaluator.compile(rule);
+        HashMap<String, Object> map = Maps.newHashMap();
+        map.put("value", 0.2f);
+        Object execute = expression.execute(map);
+        System.out.println(execute);
+    }
+
+    @Test
+    public void testAsiic() {
+        System.out.println(((int) 'a'));    // 97
+        System.out.println(((int) 'A'));    // 65
     }
 }
